@@ -1,22 +1,82 @@
 ﻿<!DOCTYPE html>
-
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+    <meta name="viewport" content="user-scalable=no,width=device-width" />
     <meta charset="utf-8" />
-    <link href="style line.css" rel="stylesheet" />
-    <title></title>
- 
+    <link href="main.css" rel="stylesheet" />
+    <title>Password Manager</title>
+    
+
 </head>
+
+
 <body>
-    <div class="vl"></div>
-    <section1>
+    <div class="vl">
+        <! search features
         <label for="Search">Search:</label>                                             <! print out text and take input minlength is 20 as box is 20 wide by default/>
         <input type="text" id="Search" name="Search" minlength="20"
-        placeholder="Enter your criteria" />
+               placeholder="Enter your criteria" />
         <button onclick="document.getElementById('Search').value =' '">X</button>
         <input type="submit" value="Go" />
-    </section1>
-    
+    </div>
+
+    <! table for passwords
+    <div class="container">
+        <label for="pageName">Site</label>
+        <div></div>
+        <input type="text" id="pageName" name="pageName" />
+        <div></div>
+        <label for="Username">Username</label>
+        <div></div>
+        <input type="text" id="Username" name="Username" />
+        <div></div>
+        <label for="Password">Password</label>
+        <div></div>
+        <input type="text" id="Password" name="Password" />
+        <div></div>
+        <input type="button" value="ADD" id="button" onlick="addRow()"/>
+    </div>
+    <table class="show" id="show">
+        <tr>
+            <th>Site</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+    </table>
+    <script>
+        var list1 = [];
+        var list2 = [];
+        var list3 = [];
+        
+        var n = 1;
+        var n = 0;
+
+        function addRow() {
+            var addRown = document.getElementById("show");
+            var NewRow = addRown.insertRow(n);
+
+            list1[x] = document.getElementById("pageName").value;
+            list2[x] = document.getElementById("Username").value;
+            list3[x] = document.getElementById("Password").value;
+                
+            var cel1 = NewRow.insertCell(0);
+            var cel2 = NewRow.insertCell(1);
+            var cel3 = NewRow.insertCell(2);
+            cel1.innerHTML = list1[x];
+            cel2.innerHTML = list2[x];
+            cel3.innerHTML = list3[x];
+
+            n++;
+            x++;
+            
+          
+        }
+    </script>
+
 </body>
+
+
+
+
 </html>
