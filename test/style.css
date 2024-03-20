@@ -1,97 +1,63 @@
-﻿body {
-    font-family: Arial, sans-serif;
+﻿/* BASE STYLES */
+:root {
+    --clr-dark: #0f172a;
+    --clr-light: #f1f5f9;
+    --clr-accent: #e11d48;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    text-align: left;
+    line-height: 1.6;
+    word-spacing: 1.4px;
+    font-family: "Roboto", sans-serif;
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 700px;
+    margin: 0 auto;
+    border: 10px solid var(--clr-dark);
 }
 
-.loginbx {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    margin: 0;
-    padding: 10px;
-    max-width: 400px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+.item {
+    width: 150px;
+    height: 150px;
+    background-color: #fb7185;
+    padding: 1em;
+    font-weight: 700;
+    color: var(--clr-light);
+    text-align: center;
+    border: 10px solid var(--clr-accent);
+    border-radius: 10px;
 }
 
-    .loginbx label {
-        margin-right: 10px; /* Add some spacing between the label and input */
-        position: fixed;
-        top: 30px;
-        left: 15px;
-    }
-    .loginbx input[type="text"] {
-        width: 90%; /* Adjust the width as needed */
-        padding: 8px;
-        margin-bottom: 60px;
-        margin-right: 10px
-    }
-
-    .loginbx input[type="submit"] {
-        width: 90%; /* Adjust the width as needed */
-        padding: 8px;
-        margin-bottom: 80px;
-        margin-right: 10px
-    }
-
-
-form {
-    margin-bottom: 100px;
-    margin-right: 10px
+/* END OF BASE STYLES */
+.container {
+    display: flex;
+    flex-direction: row; 
 }
-
-label {
-    display: block;
-    margin-bottom: 5px;
+.item-1 {
+    flex-direction: column;
 }
-
-input {
-    width: 90%;
-    padding: 8px;
-    margin-bottom: 10px;
+.item-2 {
+    flex-direction: column;
 }
-
-button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+.item-3 {
+    flex-direction: column;
 }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #4caf50;
-    color: #fff;
-}
-
-tr:hover {
-    background-color: #f5f5f5;
+.item-4 {
+    flex-grow: 5;
 }
