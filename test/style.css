@@ -49,15 +49,7 @@ body {
     display: flex;
     flex-direction: row; 
 }
-.item-1 {
-    flex-direction: column;
-}
-.item-2 {
-    flex-direction: column;
-}
-.item-3 {
-    flex-direction: column;
-}
+
 .item-4 {
     flex-grow: 5;
 }
