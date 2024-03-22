@@ -9,8 +9,18 @@
 <body>
 
     <div class="container">
-        <h1>Password Manager</h1>
+        <div class="sidebar">
+            <div class="Searchbx">
+                <!-- search features   -->
+                <label for="Search">Search:</label>                                             <!-- print out text and take input minlength is 20 as box is 20 wide by default -->
+                <input type="text" id="Search" name="Search" minlength="20" placeholder="Enter your criteria" />
+                <button onclick="document.getElementById('Search').value =''">X</button>
+                <input type="submit" value="Go" />
+            </div>
+        </div>
+
         <div class="rightSec">
+            <h1>Password Manager</h1>
             <!-- input form to datavase -->
             <form id="passwordForm">
                 <label for="website">Website:</label>
@@ -34,24 +44,15 @@
                         <th>Password</th>
                         <th>Delete</th>
                         <th>Update</th>
+                        <th>Update</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
         </div>
-
-        <div class="sidebar">
-            <div class="Searchbx">
-                <!-- search features   -->
-                <label for="Search">Search:</label>                                             <!-- print out text and take input minlength is 20 as box is 20 wide by default -->
-                <input type="text" id="Search" name="Search" minlength="20" placeholder="Enter your criteria" />
-                <button onclick="document.getElementById('Search').value =''">X</button>
-                <input type="submit" value="Go" />
-            </div>
-        </div>
-
     </div>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
