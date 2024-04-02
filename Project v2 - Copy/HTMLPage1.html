@@ -17,20 +17,18 @@
                 <button onclick="document.getElementById('Search').value =''">X</button>
                 <input type="submit" value="Go" />
             </div>
+            <div class="loginbx">
+            </div>
         </div>
 
         <div class="rightSec">
             <h1>Password Manager</h1>
             <!-- input form to datavase -->
             <form id="passwordForm">
-                <label for="website">Website:</label>
-                <input type="text" id="website" required />
-
-                <label for="username">Username:</label>
-                <input type="text" id="username" required />
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" required />
+                <input type="text" id="website" placeholder="Website" required />
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <input type="text" id="URL" placeholder="URL (Optional)" />
 
                 <button type="button" onclick="validateEntry()">Submit</button>
             </form>
