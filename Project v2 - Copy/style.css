@@ -43,6 +43,7 @@ button {
     flex-direction: column;
     margin-right: 10px;
     flex: 30%;
+    gap: 10px
 }
 /* not actual loggin box jit tripping form search need stop change */
 .Searchbx {
@@ -51,23 +52,20 @@ button {
     margin: 0;
     padding: 10px;
     align-items: baseline;
+
     background-color: #282828;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
     .Searchbx input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
+        display: block;
+        flex: 50%;
+        border: none;
+        min-width: 0;
+        margin-left: 2px;
         margin-right: 2px;
-        margin-left: 10px;
-        top: 60px;
-        left: 15px;
     }
-    .Searchbx input[type="Search"] {
-        width: 200%;
-        max-width: 1000px;
-    }
+
 
     .Searchbx input[type="submit"] {
         width: 15%;
@@ -87,8 +85,6 @@ button {
         width: 15%;
         padding: 10px;
         margin-left: 0px;
-        margin-bottom: 10px;
-        margin-right: 2px;
         margin-right: 2px;
         color: #fff;
         background-color: #CC3300;
@@ -98,6 +94,11 @@ button {
             background-color: #990000;
         }
 
+.loginbx {
+    flex-direction: row;
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 
 
