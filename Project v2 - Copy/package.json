@@ -1,0 +1,12 @@
+{
+  "name": "script.js",
+  "version": "1.0.0",
+  "description": "JS for Password Manager",
+  "type": "module",
+  "main": "script - Pure Json.js",
+  "scripts": {
+    "test": "e"
+  },
+  "author": "",
+  "license": "ISC"
+}
