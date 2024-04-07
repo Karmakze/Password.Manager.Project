@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@firebase/app": "^0.10.0",
+    "@firebase/firestore": "^4.5.1",
     "firebase": "^10.10.0"
   }
 }

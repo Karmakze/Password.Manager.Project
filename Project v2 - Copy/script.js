@@ -1,46 +1,45 @@
-// Firebase implementation 
-import { initializeApp } from 'firebase/app';
-//import { getAnalytics } from "firebase/analytics";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-//TODO setup database
-const firebaseConfig = {
-  apiKey: "AIzaSyCzvJrhnnPtUBNBHwpAdtb7BRsdcwzLx0c",
-  authDomain: "passwordmanager-8ea4d.firebaseapp.com",
-  //databaseURL: "",
-  projectId: "passwordmanager-8ea4d",
-  storageBucket: "passwordmanager-8ea4d.appspot.com",
-  messagingSenderId: "1050356190318",
-  appId: "1:1050356190318:web:1a062440c93da4b0aeea7f",
-  measurementId: "G-TSZFDKTFYG"
-
-};
-
-const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-const auth = firebase.auth 
+// // Firebase implementation 
+// import { initializeApp } from 'firebase/app';
+// import { getAuth } from 'firebase/auth';
 
 
-function FBsignIn() {
-    var email = document.getElementById("usernameInp").value;
-    var password = document.getElementById("passwordInp").value;
-    auth.signInWithEmailAndPassword(email, password).then(userCredential => {
-        console.log('User Signed in!');
-    });
-}
+// //TODO setup database
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCzvJrhnnPtUBNBHwpAdtb7BRsdcwzLx0c",
+//   authDomain: "passwordmanager-8ea4d.firebaseapp.com",
+//   databaseURL: "(default)",
+//   projectId: "passwordmanager-8ea4d",
+//   storageBucket: "passwordmanager-8ea4d.appspot.com",
+//   messagingSenderId: "1050356190318",
+//   appId: "1:1050356190318:web:1a062440c93da4b0aeea7f",
+//   measurementId: "G-TSZFDKTFYG"
 
-function FBsignUp() {
-    var email = document.getElementById("usernameInp").value;
-    var password = document.getElementById("passwordInp").value;
-    auth.createUserWithEmailAndPassword(email, password).then(cred => {
-        console.log('User signed up!');
-    });
-}
+// };
 
+// const app = initializeApp(firebaseConfig);
+// const auth = getAuth(app);
+
+
+// function FBsignIn() {
+//     var email = document.getElementById("usernameInp").value;
+//     var password = document.getElementById("passwordInp").value;
+//     auth.signInWithEmailAndPassword(email, password).then(userCredential => {
+//         console.log('User Signed in!');
+//     });
+// }
+
+// function FBsignUp() {
+//     var email = document.getElementById("usernameInp").value;
+//     var password = document.getElementById("passwordInp").value;
+//     auth.createUserWithEmailAndPassword(email, password).then(cred => {
+//         console.log('User signed up!');
+//     });
+// }
+import {FBsignIn, FBsignUp} from './FB.js';
 
 document.addEventListener("DOMContentLoaded", function () { 
     // Load existing passwords from localStorage on page load
-    loadPasswords();
+   loadPasswords();
 });
 
 function addPassword() {
