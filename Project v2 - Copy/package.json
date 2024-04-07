@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "JS for Password Manager",
   "type": "module",
-  "main": "script - Pure Json.js",
+  "main": "script.js",
   "scripts": {
     "test": "e"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.10.0"
+  }
 }
