@@ -69,7 +69,7 @@ onAuthStateChanged(auth, (user) => {
             var updateButton = document.createElement("button");
             updateButton.textContent = "Update";
             updateButton.onclick = function () {
-              addToDB("default", key, document.getElementById("username").value, document.getElementById("password").value, "newURL"); //todo cleanup if time
+              addToDB("default", key, document.getElementById("username").value, document.getElementById("password").value, "newURL");
             };
             cellUpdateAction.appendChild(updateButton);
           });

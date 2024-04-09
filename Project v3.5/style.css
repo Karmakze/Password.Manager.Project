@@ -1,0 +1,161 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    text-align: left;
+    color: white;
+}
+
+.container {
+    display: flex;
+    max-width: 100%;
+    margin: auto;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.sidebar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-right: 10px;
+    flex: 30%;
+    gap: 10px
+}
+/* not actual loggin box jit tripping form search need stop change */
+.Searchbx {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 10px;
+    align-items: baseline;
+
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .Searchbx input[type="text"] {
+        display: block;
+        flex: 50%;
+        border: none;
+        min-width: 0;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+
+    .Searchbx input[type="submit"] {
+        width: 15%;
+        padding: 10px;
+        color: #fff;
+        background-color: #4caf50;
+        border: none;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+        .Searchbx input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    .Searchbx button {
+        top: 60px;
+        left: 340px;
+        width: 15%;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 2px;
+        color: #fff;
+        background-color: #CC3300;
+        border: none;
+    }
+        .Searchbx button:hover {
+            background-color: #990000;
+        }
+
+.loginbx {
+    flex-direction: row;
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tempInps {
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.rightSec {
+    padding: 20px;
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 70%;
+    flex-wrap: wrap;
+}
+/* input boxes and button/labels */
+
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-bottom: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    
+}
+
+th {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #000000;
+}
+
