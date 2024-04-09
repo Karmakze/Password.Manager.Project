@@ -100,7 +100,10 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
+.tempInps {
+    background-color: #282828;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 
 

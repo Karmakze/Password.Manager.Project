@@ -20,8 +20,9 @@
                 <input type="submit" value="Go" />
             </div>
             <div class="loginbx">
-                <button type="button"> Login </button>
-                <button type="button"> Sign Up</button>
+                <button type="button" id="loginButton"> Login </button>
+                <button type="button" id="logoutButton"> Logout</button>
+                <button type="button" id="signUpButton"> Sign Up</button>
             </div>
             <div class="tempInps">
                 <input type="text" id="usernameInp" placeholder="Username" />
@@ -38,7 +39,7 @@
                 <input type="password" id="password" placeholder="Password" required />
                 <input type="text" id="URL" placeholder="URL (Optional)" />
 
-                <button type="button">Submit</button>
+                <button type="button" id="formSubmit">Submit</button>
             </form>
 
             <!-- Output table for database -->
@@ -60,6 +61,6 @@
     </div>
 
     <script type="module" src="FB.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

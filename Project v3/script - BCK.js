@@ -1,52 +1,34 @@
-// // Firebase implementation 
-// import { initializeApp } from 'firebase/app';
-// import { getAuth } from 'firebase/auth';
 
+import {FBsignIn, FBsignUp, addToDB} from './FB.js';
 
-// //TODO setup database
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCzvJrhnnPtUBNBHwpAdtb7BRsdcwzLx0c",
-//   authDomain: "passwordmanager-8ea4d.firebaseapp.com",
-//   databaseURL: "(default)",
-//   projectId: "passwordmanager-8ea4d",
-//   storageBucket: "passwordmanager-8ea4d.appspot.com",
-//   messagingSenderId: "1050356190318",
-//   appId: "1:1050356190318:web:1a062440c93da4b0aeea7f",
-//   measurementId: "G-TSZFDKTFYG"
-
-// };
-
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
-
-
-// function FBsignIn() {
-//     var email = document.getElementById("usernameInp").value;
-//     var password = document.getElementById("passwordInp").value;
-//     auth.signInWithEmailAndPassword(email, password).then(userCredential => {
-//         console.log('User Signed in!');
-//     });
-// }
-
-// function FBsignUp() {
-//     var email = document.getElementById("usernameInp").value;
-//     var password = document.getElementById("passwordInp").value;
-//     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-//         console.log('User signed up!');
-//     });
-// }
-import {FBsignIn, FBsignUp} from './FB.js';
+//event listners 
 
 document.addEventListener("DOMContentLoaded", function () { 
     // Load existing passwords from localStorage on page load
    loadPasswords();
 });
 
+document.getElementById("formSubmit").addEventListener("click", function () {
+    validateEntry();
+});
+
+document.getElementById("signUpButton").addEventListener("click", function () {
+    FBsignUp();
+});
+
+document.getElementById("loginButton").addEventListener("click", function () {
+    FBsignIn();
+});
+
+
+
+
 function addPassword() {
     // Get form values
     var website = document.getElementById("website").value;
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
+    addToDB("default", website, username, password, "www.google.com")
 
     // Create a password object
     var newPassword = {website: website,username: username, password: password};
@@ -111,7 +93,7 @@ function validateEntry() {
     // get form and run check to see if all fields are filled
     var passForm = document.getElementById("passwordForm");
     var inputs = passForm.querySelectorAll("input[required]");
-
+    console.log(currentUser);
     var noreq = false;
     //goes through all inputs to check if they're filled also being stripped of whitespace
     inputs.forEach(function(input) {
