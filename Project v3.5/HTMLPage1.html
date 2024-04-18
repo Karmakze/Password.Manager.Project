@@ -16,17 +16,19 @@
                 <!-- search features   -->
                 <label for="Search">Search:</label>                                             <!-- print out text and take input minlength is 20 as box is 20 wide by default -->
                 <input type="text" id="Search" name="Search" minlength="20" placeholder="Enter your criteria" />
-                <button onclick="document.getElementById('Search').value =''">X</button>
-                <input type="submit" value="Go" />
+                <button onclick="document.getElementById('Search').value =''" id="clearBtn">X</button>
+                <input type="submit" value="Go" id="searchBtn" />
             </div>
             <div class="loginbx">
                 <button type="button" id="loginButton"> Login </button>
                 <button type="button" id="logoutButton"> Logout</button>
                 <button type="button" id="signUpButton"> Sign Up</button>
+                <button type="button" id="resetBtn"> Forgot Password?</button>
             </div>
-            <div class="tempInps">
-                <input type="text" id="usernameInp" placeholder="Username" />
-                <input type="text" id="passwordInp" placeholder="Password" />
+            <div class="tempInps" id="profileInsert">
+                <input type="text" id="usernameInp" placeholder="Email" />
+                <input type="password" id="passwordInp" placeholder="Password" />
+                <button type="button" id="createProfileBtn"> Create Profile</button>
             </div>
         </div>
 
@@ -36,12 +38,16 @@
             <form id="passwordForm">
                 <input type="text" id="website" placeholder="Website" required />
                 <input type="text" id="username" placeholder="Username" required />
-                <input type="password" id="password" placeholder="Password" required />
+                <input type="text" id="password" placeholder="Password" required />
                 <input type="text" id="URL" placeholder="URL (Optional)" />
 
                 <button type="button" id="formSubmit">Submit</button>
+                
             </form>
-
+            <div class="generatorBtns">
+                <button type="button" id="addKeywordBtn">Add Keyword</button>
+                <button type="button" id="genPassBtn">Generate Password</button>
+            </div>
             <!-- Output table for database -->
             <table id="passwordTable">
                 <thead>
@@ -49,18 +55,19 @@
                         <th>Website</th>
                         <th>Username</th>
                         <th>Password</th>
+                        <th>Show/Hide</th>
                         <th>Delete</th>
                         <th>Update</th>
-                        <th>Update</th>
-                        <th>Update</th>
+                        <th>Pass Score</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script type="module" src="FB.js"></script>
-    <script type="module" src="script.js"></script>
+    
+    
 </body>
 </html>
