@@ -1,6 +1,6 @@
 // Firebase implementation 
 
-//TODO 2fa ( not possible free plan ), profile refresh fix in logout/login, mobile support, prompt for updating, hide loginbx pass, URL linked, bring x on profiles inline and delete confirmation, 
+//TODO 2fa ( not possible free plan ), mobile support, hide loginbx pass,
 
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
@@ -85,138 +85,82 @@ document.getElementById("genPassBtn").addEventListener("click", function () {
 });
 
 
-//check if user is signed in if so get data from database and display it
-// let currentListenerProfile = null;
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in
-//       console.log('A user is signed in!');
-//       if (currentListenerProfile) {
-//         const oldRefpf = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value);
-//         off(oldRefpf, 'value', currentListenerProfile);
-//       }
-//       currentListenerProfile = (snapshot) => {
-//       const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles");
-//       onValue(pfRef, (snapshot) => {
-//         const data = snapshot.val();
-//         var parent = document.getElementById("profileInsert")
-//         if (data) {
-//           if (parent !== null) {
-//             // Remove old profile buttons
-//             var oldButtons = document.querySelectorAll(".profile-button");
-//             oldButtons.forEach(function(button) {
-//               button.remove();
-//             });
-            
-//             //creates button for each profile
-//             Object.keys(data).forEach((key) => {
-//               var profileButton = document.createElement("button");
-//               profileButton.style.backgroundColor = "rgb(0,0,150)";
-//               profileButton.addEventListener("mouseover", function() {
-//                 this.style.backgroundColor = "rgb(0,0,100)";
-//               });
-//               profileButton.addEventListener("mouseout", function() {
-//                 this.style.backgroundColor = "rgb(0,0,150)";
-//               });
-//               profileButton.textContent = key;
-//               profileButton.className = "profile-button";
-//               profileButton.onclick = function() {
-//                 selectedProfile.value = key;
-//                 createUpdateListner();
-//               }
-//               parent.appendChild(profileButton);
 
-//               var deleteProfileButton = document.createElement("button");
-//               deleteProfileButton.textContent = "X";
-//               deleteProfileButton.style.backgroundColor = "rgb(150,0,0)";
-//               deleteProfileButton.className = "profile-button";
-//               deleteProfileButton.onclick = function() {
-//                 deleteProfile(key);
-//               }
-//               parent.appendChild(deleteProfileButton);
-              
-//             });
-//           }
-//         }
-//       }, (error) => {
-//         console.error('Error:', error);
-//       });
-//     }
-//       const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value); 
-//       onValue(pfRef, currentListenerProfile);
-//     }
-    
-// });
 
-let currentListenerProfile = null;
 onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in
       console.log('A user is signed in!');
-      if (currentListenerProfile) {
-        const oldRefpf = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value);
-        off(oldRefpf, 'value', currentListenerProfile);
-      }
-      currentListenerProfile = (snapshot) => {
-      const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles");
-      onValue(pfRef, (snapshot) => {
-        const data = snapshot.val();
-        var parent = document.getElementById("profileInsert")
-        if (data) {
-          if (parent !== null) {
-            // Remove old profile buttons
-            var oldButtons = document.querySelectorAll(".profile-button");
-            oldButtons.forEach(function(button) {
-              button.remove();
-            });
-            
-            //creates button for each profile
-            Object.keys(data).forEach((key) => {
-              // Create a new div for each profile
-              var tempInps = document.createElement("div");
-              tempInps.style.display = "flex";
-              tempInps.style.justifyContent = "space-between";
-
-              var profileButton = document.createElement("button");
-              profileButton.style.backgroundColor = "rgb(0,0,150)";
-              profileButton.addEventListener("mouseover", function() {
-                this.style.backgroundColor = "rgb(0,0,100)";
-              });
-              profileButton.addEventListener("mouseout", function() {
-                this.style.backgroundColor = "rgb(0,0,150)";
-              });
-              profileButton.textContent = key;
-              profileButton.className = "profile-button";
-              profileButton.style.width = "100%"; 
-              profileButton.onclick = function() {
-                selectedProfile.value = key;
-                createUpdateListner();
-              }
-              tempInps.appendChild(profileButton);
-
-              var deleteProfileButton = document.createElement("button");
-              deleteProfileButton.textContent = "X";
-              deleteProfileButton.style.backgroundColor = "rgb(150,0,0)";
-              deleteProfileButton.className = "profile-button";
-              deleteProfileButton.onclick = function() {
-                deleteProfile(key);
-              }
-              tempInps.appendChild(deleteProfileButton);
-
-              // Append the new div to the parent
-              parent.appendChild(tempInps);
-            });
-          }
-        }
-      }, (error) => {
-        console.error('Error:', error);
-      });
-    }
-      const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value); 
-      onValue(pfRef, currentListenerProfile);
+      createProfileListner()
     }
 });
 
+let currentListenerProfile = null;
+function createProfileListner() {
+  if (currentListenerProfile) {
+    const oldRefpf = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value);
+    off(oldRefpf, 'value', currentListenerProfile);
+  }
+  currentListenerProfile = (snapshot) => {
+  const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles");
+  onValue(pfRef, (snapshot) => {
+    const data = snapshot.val();
+    var parent = document.getElementById("profileInsert")
+    if (data) {
+      if (parent !== null) {
+        // Remove old profile buttons
+        var oldButtons = document.querySelectorAll(".profile-button");
+        oldButtons.forEach(function(button) {
+          button.remove();
+        });
+        
+        //creates button for each profile
+        Object.keys(data).forEach((key) => {
+          // Create a new div for each profile
+          var tempInps = document.createElement("div");
+          tempInps.style.display = "flex";
+          tempInps.style.justifyContent = "space-between";
+
+          var profileButton = document.createElement("button");
+          profileButton.style.backgroundColor = "rgb(0,0,150)";
+          profileButton.addEventListener("mouseover", function() {
+            this.style.backgroundColor = "rgb(0,0,100)";
+          });
+          profileButton.addEventListener("mouseout", function() {
+            this.style.backgroundColor = "rgb(0,0,150)";
+          });
+          profileButton.textContent = key;
+          profileButton.className = "profile-button";
+          profileButton.style.width = "100%"; 
+          profileButton.style.border = "#282828 1px solid";
+          profileButton.onclick = function() {
+            selectedProfile.value = key;
+            createUpdateListner();
+          }
+          tempInps.appendChild(profileButton);
+
+          var deleteProfileButton = document.createElement("button");
+          deleteProfileButton.textContent = "X";
+          deleteProfileButton.style.backgroundColor = "rgb(150,0,0)";
+          deleteProfileButton.style.border = "#282828 1px solid";
+          deleteProfileButton.className = "profile-button";
+          deleteProfileButton.onclick = function() {
+            deleteProfile(key);
+          }
+          tempInps.appendChild(deleteProfileButton);
+
+          // Append the new div to the parent
+          parent.appendChild(tempInps);
+        });
+      }
+    }
+  }, (error) => {
+    console.error('Error:', error);
+  });
+  }
+  const pfRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + selectedProfile.value); 
+  onValue(pfRef, currentListenerProfile);
+}
 
 let currentListenerData = null;
 function createUpdateListner() {
@@ -276,13 +220,24 @@ function createUpdateListner() {
             deleteFromDB(key, selectedProfile.value);
           };
           cellDelAction.appendChild(deleteButton);
+
           // TODO update prompt instead of using add form
           var cellUpdateAction = row.insertCell(5);
           var updateButton = document.createElement("button");
           updateButton.textContent = "Update";
           updateButton.style.backgroundColor = "rgb(0,0,150)";
+          const Url = CryptoJS.AES.decrypt(data[key].URL, secretKey).toString(CryptoJS.enc.Utf8)
           updateButton.onclick = function () {
-            addToDB(selectedProfile.value, key, document.getElementById("username").value, document.getElementById("password").value, "newURL");
+            const upUsername = prompt("Enter Updated Username, If empty no change will occur in Username")
+            const upPassword = prompt("Enter Updated Password, If empty no change will occur in Password")
+            if (upUsername != "" && upPassword != "")
+              addUpToDB(selectedProfile.value, key, upUsername, upPassword, Url);
+            else if (upUsername == "")
+              addUpToDB(selectedProfile.value, key, username, upPassword, Url);
+            else if (upPassword == "")
+              addUpToDB(selectedProfile.value, key, upUsername, password, Url);
+            else
+              alert("No changes made")
           };
           cellUpdateAction.appendChild(updateButton);
 
@@ -403,6 +358,20 @@ function FBlogout () {
     auth.signOut().then(() => {
         console.log('User signed out!');
         alert('User Signed Out!');
+        // Remove profile buttons
+        const parent = document.getElementById("profileInsert");
+        if (parent) {
+            const profileButtons = parent.querySelectorAll(".profile-button");
+            profileButtons.forEach(button => {
+                button.remove();
+            });
+        }
+        // Clear password table
+        const tableBody = document.querySelector("#passwordTable tbody");
+        if (tableBody) {
+            tableBody.innerHTML = "";
+        }
+
     }).catch((error) => {
         console.log('Error:', error);
     });
@@ -426,6 +395,24 @@ async function addToDB(profile, website, username, password, URL) {
       URL: URL
     });
   }
+
+}
+
+async function addUpToDB(profile, website, username, password, URL) {
+  const secretKey = 'N3wC0mpl3x$3cr3tK3y!r38r238yer9823r9832'
+  const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
+  const encryptedUsername = CryptoJS.AES.encrypt(username, secretKey).toString();
+
+  const dbRef = ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + profile + "/" + website);
+  
+  // Get the data at the specified location
+  var snapshot = await get(dbRef);
+  set(ref(db, 'users/' + auth.currentUser.uid + "/profiles/" + profile + "/" + website), {
+    Username: encryptedUsername,
+    Password: encryptedPassword,
+    URL: URL
+  });
+  
 
 }
 
